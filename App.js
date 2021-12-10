@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, { Component } from 'react';
 import {
   Image,
   SafeAreaView,
@@ -36,6 +36,8 @@ const App = () => {
       <Gelar/>
       <Foto/>
       <TextInput style={{borderWidth: 1}} />
+      <BoxGreen/>
+      <Profile/>
     </View>
   );
 };
@@ -51,6 +53,26 @@ const Foto = () => {
       style={{width: 100, height: 100}}
     />
   );
+};
+
+class BoxGreen extends Component {
+  render() {
+    return <Text>Ini komponen dari Class</Text>
+  }
+};
+
+class Profile extends Component {
+  render(){
+    return (
+      <View> 
+      <Image
+        source={{uri: 'https://placeimg.com/100/100/animals'}}
+        style={{width: 100, height: 100, borderRadius: 25}} 
+      />
+      <Text style={{color: 'blue', fontSize: 15}}>Ini kucing Oren, senggol dong!</Text>
+      </View>
+    );
+  };
 };
 
 export default App;
