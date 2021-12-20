@@ -10,6 +10,7 @@ import React from 'react';
 // import macbook from './macbook.jpg';
 import SampleComponent from './SampleComponent';
 import StylingReactNative from './StylingReactNativeComponent';
+import MaterfiFlexBox from './MateriFlexBox';
 import {
   Image,
   SafeAreaView,
@@ -34,8 +35,9 @@ const App = () => {
   return (
   <View>
     <ScrollView>
-      <SampleComponent />
-      <StylingReactNative />
+      {/* <SampleComponent />
+      <StylingReactNative /> */}
+      <MaterfiFlexBox />
       </ScrollView>
   </View>
   );
