@@ -11,6 +11,7 @@ import React from 'react';
 import SampleComponent from './SampleComponent';
 import StylingReactNative from './StylingReactNativeComponent';
 import MaterfiFlexBox from './MateriFlexBox';
+import PositionReactNative from './PositionReactNative';
 import {
   Image,
   SafeAreaView,
@@ -36,8 +37,9 @@ const App = () => {
   <View>
     <ScrollView>
       {/* <SampleComponent />
-      <StylingReactNative /> */}
-      <MaterfiFlexBox />
+      <StylingReactNative />
+      <MaterfiFlexBox /> */}
+      <PositionReactNative />
       </ScrollView>
   </View>
   );
