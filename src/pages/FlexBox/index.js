@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import photos from './tony2.jpg';
+import photos from '../../assets/image/tony2.jpg';
 import {
     Image,
     SafeAreaView,
@@ -12,7 +12,7 @@ import {
     View,
   } from 'react-native';
 
-class MaterfiFlexBox extends Component {
+class FlexBox extends Component {
     render(){
         return (
             <View>
@@ -42,7 +42,7 @@ class MaterfiFlexBox extends Component {
                     />
                     <View>
                         <Text style={{fontSize: 20, fontWeight: 'bold'}}>Tony Andhika Mahendra</Text>
-                        <Text>200 ribu subscriber</Text>
+                        <Text>500 ribu subscriber</Text>
                     </View>
                 </View>
             </View>
@@ -50,4 +50,4 @@ class MaterfiFlexBox extends Component {
     }
 }
 
-export default MaterfiFlexBox;
+export default FlexBox;

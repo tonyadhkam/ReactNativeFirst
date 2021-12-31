@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import macbook from './macbook.jpg';
+import macbook from '../../assets/image/macbook.jpg';
 import {
     Image,
     SafeAreaView,
@@ -20,7 +20,7 @@ import {
     ReloadInstructions,
   } from 'react-native/Libraries/NewAppScreen';
 
-  const StylingReactNative = () => {
+  const StylingComponent = () => {
     return(
       <View>
         <Text style={styles.text}>Styling Component</Text>
@@ -64,4 +64,4 @@ import {
     },
   });
 
-  export default StylingReactNative;
+  export default StylingComponent;

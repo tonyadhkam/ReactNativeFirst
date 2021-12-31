@@ -8,10 +8,10 @@
 
 import React from 'react';
 // import macbook from './macbook.jpg';
-import SampleComponent from './SampleComponent';
-import StylingReactNative from './StylingReactNativeComponent';
-import MaterfiFlexBox from './MateriFlexBox';
-import PositionReactNative from './PositionReactNative';
+import SampleComponent from './pages/SampleComponent';
+import StylingComponent from './pages/StylingComponent';
+import FlexBox from './pages/FlexBox';
+import Position from './pages/Position';
 import {
   Image,
   SafeAreaView,
@@ -36,10 +36,10 @@ const App = () => {
   return (
   <View>
     <ScrollView>
-      {/* <SampleComponent />
-      <StylingReactNative />
-      <MaterfiFlexBox /> */}
-      <PositionReactNative />
+      <SampleComponent />
+      <StylingComponent />
+      <FlexBox />
+      <Position />
       </ScrollView>
   </View>
   );
