@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 // import macbook from './macbook.jpg';
 import SampleComponent from './pages/SampleComponent';
 import StylingComponent from './pages/StylingComponent';
@@ -33,13 +33,20 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 const App = () => {
+  const [isShow, SetIsShow] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      SetIsShow(false)
+    }, 6000)
+  }, [])
+
   return (
   <View>
     <ScrollView>
-      <SampleComponent />
-      <StylingComponent />
-      <FlexBox />
-      <Position />
+      {/* <SampleComponent />
+      <StylingComponent /> */}
+      {isShow && <FlexBox />}
+      {/* <Position /> */}
       </ScrollView>
   </View>
   );
