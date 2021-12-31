@@ -12,6 +12,7 @@ import SampleComponent from './pages/SampleComponent';
 import StylingComponent from './pages/StylingComponent';
 import FlexBox from './pages/FlexBox';
 import Position from './pages/Position';
+import PropsDinamis from './pages/PropsDinamis';
 import {
   Image,
   SafeAreaView,
@@ -45,8 +46,9 @@ const App = () => {
     <ScrollView>
       {/* <SampleComponent />
       <StylingComponent /> */}
-      {isShow && <FlexBox />}
+      {/* {isShow && <FlexBox />} */}
       {/* <Position /> */}
+      <PropsDinamis />
       </ScrollView>
   </View>
   );
