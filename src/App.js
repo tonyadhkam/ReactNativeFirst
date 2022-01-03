@@ -13,6 +13,7 @@ import StylingComponent from './pages/StylingComponent';
 import FlexBox from './pages/FlexBox';
 import Position from './pages/Position';
 import PropsDinamis from './pages/PropsDinamis';
+import StateDinamis from './pages/StateDinamis';
 import {
   Image,
   SafeAreaView,
@@ -48,7 +49,8 @@ const App = () => {
       <StylingComponent /> */}
       {/* {isShow && <FlexBox />} */}
       {/* <Position /> */}
-      <PropsDinamis />
+      {/* <PropsDinamis /> */}
+      <StateDinamis />
       </ScrollView>
   </View>
   );
