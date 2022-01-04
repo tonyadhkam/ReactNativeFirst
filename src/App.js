@@ -15,6 +15,8 @@ import Position from './pages/Position';
 import PropsDinamis from './pages/PropsDinamis';
 import StateDinamis from './pages/StateDinamis';
 import Communication from './pages/Communication';
+import CallAPIVanila from './pages/CallAPIVanilla';
+
 import {
   Image,
   SafeAreaView,
@@ -52,7 +54,8 @@ const App = () => {
       {/* <Position /> */}
       {/* <PropsDinamis /> */}
       {/* <StateDinamis /> */}
-      <Communication />
+      {/* <Communication /> */}
+      <CallAPIVanila />
       </ScrollView>
   </View>
   );
