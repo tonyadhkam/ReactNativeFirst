@@ -1,29 +1,22 @@
 {
-  "posts": [
+  "users": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "name": "tony mahendra",
+      "emai;": "tonyandhi11@gmail.com",
+      "bidang": "react native dev"
     },
     {
-      "title": "mavinsa developer",
-      "author": "tonymahendra",
+      "name": "Tony Andhika Mahendra",
+      "email": "tony11@gmail.com",
+      "bidang": "React Native Dev",
       "id": 2
     },
     {
-      "title": "React Native Call API",
-      "author": "tony mahendra",
+      "name": "Renty Revinsa",
+      "email": "renty06@gmail.com",
+      "bidang": "Sekretaris",
       "id": 3
     }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
