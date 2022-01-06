@@ -1,10 +1,10 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "tony mahendra",
-      "emai;": "tonyandhi11@gmail.com",
-      "bidang": "react native dev"
+      "name": "Arrael",
+      "email": "rael22@gmail.com",
+      "bidang": "Assisten",
+      "id": 1
     },
     {
       "name": "Tony Andhika Mahendra",
@@ -17,6 +17,18 @@
       "email": "renty06@gmail.com",
       "bidang": "Sekretaris",
       "id": 3
+    },
+    {
+      "name": "Veronicha Flasma",
+      "email": "veronicha11@gmail.com",
+      "bidang": "Project Manajer",
+      "id": 4
+    },
+    {
+      "name": "Nadhila",
+      "email": "nadhila22@gmail.com",
+      "bidang": "Akuntansi",
+      "id": 5
     }
   ]
 }

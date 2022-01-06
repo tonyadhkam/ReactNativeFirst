@@ -1,17 +1,19 @@
 import axios from 'axios';
-import React from 'react';
-import { Button, Image, StyleSheet, Text, TextInput, View } from 'react-native';
+import React, { useEffect } from 'react';
+import { Button, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useState } from 'react/cjs/react.development';
 import tony from '../../assets/image/tony2.jpg';
 
-const Item = () => {
+const Item = ({name, email, bidang, onPress}) => {
     return (
         <View style={styles.itemContainer}>
-            <Image source={tony} style={styles.avatar}/>
+            <TouchableOpacity onPress={onPress}>
+                <Image source={tony} style={styles.avatar}/>
+            </TouchableOpacity>
             <View style={styles.desc}>
-                <Text style={styles.descName}>Nama Lengkap</Text>
-                <Text style={styles.descEmail}>Email</Text>
-                <Text style={styles.descBidang}>Bidang</Text>
+                <Text style={styles.descName}>{name}</Text>
+                <Text style={styles.descEmail}>{email}</Text>
+                <Text style={styles.descBidang}>{bidang}</Text>
             </View>
             <Text style={styles.delete}>X</Text>
         </View>
@@ -22,6 +24,13 @@ const LocalAPI = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [bidang, setBidang] = useState("");
+    const [users, setUsers] = useState([]);
+    const [button, setButton] = useState("Simpan");
+    const [selectedUser, setSelectedUser] = useState({})
+
+    useEffect(() => {
+        getData();
+    }, []);
 
     const submit = () => {
         const data = {
@@ -29,15 +38,46 @@ const LocalAPI = () => {
             email,
             bidang,
         }
-        console.log('data before dens: ', data);
-        axios.post('http://10.0.2.2:3004/users', data)
+        if(button === 'Simpan') {
+            axios.post('http://10.0.2.2:3004/users', data)
+            .then(res => {
+                console.log('res: ', res);
+                setName("");
+                setEmail("");
+                setBidang("");
+                getData();
+            })
+        }
+        else {
+            axios.put(`http://10.0.2.2:3004/users/${selectedUser.id}`, data)
+            .then(res => {
+                console.log('res update: ', res);
+                setName("");
+                setEmail("");
+                setBidang("");
+                getData();
+                setButton("Simpan");
+            })
+        }
+    }
+
+    const getData = () => {
+        axios.get('http://10.0.2.2:3004/users')
         .then(res => {
-            console.log('res: ', res);
-            setName("");
-            setEmail("");
-            setBidang("");
+            console.log('res get data: ', res)
+            setUsers(res.data);
         })
     }
+
+    const selectItem = (item) => {
+        console.log('selected item: ', item);
+        setSelectedUser(item);
+        setName(item.name);
+        setEmail(item.email);
+        setBidang(item.bidang);
+        setButton("Update");
+    }
+
     return (
         <View style={styles.container}>
             <Text style={styles.textTittle}>Local API (JSON Server)</Text>
@@ -45,11 +85,11 @@ const LocalAPI = () => {
             <TextInput placeholder='Nama Lengkap' style={styles.input} value={name} onChangeText={(value) => setName(value)}/>
             <TextInput placeholder='Email' style={styles.input} value={email} onChangeText={(value) => setEmail(value)}/>
             <TextInput placeholder='Bidang' style={styles.input} value={bidang} onChangeText={(value) => setBidang(value)}/>
-            <Button title='Simpan' onPress={submit}/>
+            <Button title={button} onPress={submit}/>
             <View style={styles.line} />
-            <Item />
-            <Item />
-            <Item />
+            {users.map(user => {
+                return <Item name={user.name} email={user.email} bidang={user.bidang} onPress={() => selectItem(user)} />
+            })}
         </View>
     );
 };
