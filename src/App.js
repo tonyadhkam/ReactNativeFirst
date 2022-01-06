@@ -17,6 +17,7 @@ import StateDinamis from './pages/StateDinamis';
 import Communication from './pages/Communication';
 import CallAPIVanila from './pages/CallAPIVanilla';
 import CallAPIAxios from './pages/CallAPIAxios';
+import LocalAPI from './pages/LocalAPI';
 
 import {
   Image,
@@ -57,7 +58,8 @@ const App = () => {
       {/* <StateDinamis /> */}
       {/* <Communication /> */}
       {/* <CallAPIVanila /> */}
-      <CallAPIAxios />
+      {/* <CallAPIAxios /> */}
+      <LocalAPI />
       </ScrollView>
   </View>
   );
