@@ -1,10 +1,10 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
-import { Button, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, Button, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useState } from 'react/cjs/react.development';
 import tony from '../../assets/image/tony2.jpg';
 
-const Item = ({name, email, bidang, onPress}) => {
+const Item = ({name, email, bidang, onPress, onDelete}) => {
     return (
         <View style={styles.itemContainer}>
             <TouchableOpacity onPress={onPress}>
@@ -15,7 +15,9 @@ const Item = ({name, email, bidang, onPress}) => {
                 <Text style={styles.descEmail}>{email}</Text>
                 <Text style={styles.descBidang}>{bidang}</Text>
             </View>
-            <Text style={styles.delete}>X</Text>
+            <TouchableOpacity onPress={onDelete}>
+                <Text style={styles.delete}>X</Text>
+            </TouchableOpacity>
         </View>
     )
 }
@@ -78,6 +80,15 @@ const LocalAPI = () => {
         setButton("Update");
     }
 
+    const deleteItem = (item) => {
+        console.log(item);
+        axios.delete(`http://10.0.2.2:3004/users/${item.id}`)
+        .then(res => {
+            console.log('res delete: ', res)
+            getData();
+        })
+    }
+
     return (
         <View style={styles.container}>
             <Text style={styles.textTittle}>Local API (JSON Server)</Text>
@@ -88,7 +99,29 @@ const LocalAPI = () => {
             <Button title={button} onPress={submit}/>
             <View style={styles.line} />
             {users.map(user => {
-                return <Item name={user.name} email={user.email} bidang={user.bidang} onPress={() => selectItem(user)} />
+                return (
+                    <Item 
+                        key={user.id}
+                        name={user.name} 
+                        email={user.email} 
+                        bidang={user.bidang} 
+                        onPress={() => selectItem(user)} 
+                        onDelete={() => Alert.alert(
+                            'Peringatan', 
+                            'Anda yakin menghapus data ini ?', 
+                            [
+                                {
+                                    text: 'Tidak', 
+                                    onPress: () => console.log('button tidak')
+                                }, 
+                                {
+                                    text: 'Ya',
+                                     onPress: () => deleteItem(user)
+                                }
+                            ]
+                        )}
+                    />
+                )
             })}
         </View>
     );
